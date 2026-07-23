@@ -1,0 +1,27 @@
+services:
+  app:
+    build: .
+    ports: ["8080:80"]
+    environment:
+      DB_HOST: db
+      DB_NAME: taskflow_pro
+      DB_USER: taskflow
+      DB_PASS: taskflow_secret
+    depends_on: [db]
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_DATABASE: taskflow_pro
+      MYSQL_USER: taskflow
+      MYSQL_PASSWORD: taskflow_secret
+      MYSQL_ROOT_PASSWORD: root_secret
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./database/upgrade_v2.sql:/docker-entrypoint-initdb.d/02-v2.sql
+      - ./database/upgrade_v3.sql:/docker-entrypoint-initdb.d/03-v3.sql
+      - ./database/upgrade_v4.sql:/docker-entrypoint-initdb.d/04-v4.sql
+      - ./database/upgrade_v5.sql:/docker-entrypoint-initdb.d/05-v5.sql
+      - ./database/upgrade_v6.sql:/docker-entrypoint-initdb.d/06-v6.sql
+volumes:
+  dbdata:

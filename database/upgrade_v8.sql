@@ -1,0 +1,19 @@
+USE taskflow_pro;
+
+ALTER TABLE teams
+ADD COLUMN IF NOT EXISTS description VARCHAR(500) NULL AFTER name,
+ADD COLUMN IF NOT EXISTS color VARCHAR(20) NOT NULL DEFAULT '#3b82f6' AFTER description,
+ADD COLUMN IF NOT EXISTS logo_initials VARCHAR(4) NULL AFTER color;
+
+CREATE TABLE IF NOT EXISTS email_queue (
+ id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ recipient VARCHAR(190) NOT NULL,
+ subject VARCHAR(190) NOT NULL,
+ body TEXT NOT NULL,
+ status ENUM('pending','sent','failed') NOT NULL DEFAULT 'pending',
+ attempts TINYINT UNSIGNED NOT NULL DEFAULT 0,
+ last_error VARCHAR(500) NULL,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ sent_at DATETIME NULL,
+ INDEX idx_email_queue_status(status,created_at)
+) ENGINE=InnoDB;

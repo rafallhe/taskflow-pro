@@ -1,0 +1,5 @@
+Options -Indexes
+DirectoryIndex index.php
+<FilesMatch "^(\.env|README\.md|DEPLOYMENT\.md)$">
+Require all denied
+</FilesMatch>

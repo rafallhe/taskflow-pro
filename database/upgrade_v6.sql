@@ -1,0 +1,2 @@
+USE taskflow_pro;
+CREATE TABLE IF NOT EXISTS email_queue (id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,recipient VARCHAR(190) NOT NULL,subject VARCHAR(190) NOT NULL,body TEXT NOT NULL,status ENUM('pending','sent','failed') NOT NULL DEFAULT 'pending',attempts TINYINT UNSIGNED NOT NULL DEFAULT 0,last_error VARCHAR(500) NULL,created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,sent_at DATETIME NULL,INDEX idx_email_queue_status(status,created_at)) ENGINE=InnoDB;

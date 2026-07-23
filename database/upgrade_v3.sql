@@ -1,0 +1,18 @@
+USE taskflow_pro;
+
+ALTER TABLE tasks
+ADD COLUMN IF NOT EXISTS tags VARCHAR(255) NULL AFTER category;
+
+CREATE TABLE IF NOT EXISTS task_attachments (
+ id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ task_id BIGINT UNSIGNED NOT NULL,
+ user_id BIGINT UNSIGNED NOT NULL,
+ original_name VARCHAR(255) NOT NULL,
+ stored_name VARCHAR(255) NOT NULL UNIQUE,
+ mime_type VARCHAR(120) NOT NULL,
+ file_size BIGINT UNSIGNED NOT NULL,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ CONSTRAINT fk_attachments_task FOREIGN KEY(task_id) REFERENCES tasks(id) ON DELETE CASCADE,
+ CONSTRAINT fk_attachments_user FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE,
+ INDEX idx_attachments_task(task_id,created_at)
+) ENGINE=InnoDB;

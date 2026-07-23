@@ -1,0 +1,3 @@
+<?php
+require_once __DIR__.'/../includes/bootstrap.php';require_auth();if($_SERVER['REQUEST_METHOD']!=='POST')redirect('/tasks/index.php');verify_csrf();$u=current_user($pdo);$id=filter_input(INPUT_POST,'id',FILTER_VALIDATE_INT);
+$stmt=$pdo->prepare("SELECT title FROM tasks WHERE id=? AND user_id=?");$stmt->execute([$id,$u['id']]);$t=$stmt->fetch();if($t){$pdo->prepare("DELETE FROM tasks WHERE id=? AND user_id=?")->execute([$id,$u['id']]);activity($pdo,(int)$u['id'],'Task deleted',$t['title']);flash('success','Task deleted.');}else flash('error','Task not found.');redirect('/tasks/index.php');

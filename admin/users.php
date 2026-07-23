@@ -1,0 +1,9 @@
+<?php
+require_once __DIR__.'/../includes/bootstrap.php';require_auth();require_role($pdo,['admin']);$me=current_user($pdo);
+if($_SERVER['REQUEST_METHOD']==='POST'){verify_csrf();$id=(int)($_POST['id']??0);$role=$_POST['role']??'member';if(in_array($role,['admin','manager','member'],true)&&$id!==$me['id']){$pdo->prepare("UPDATE users SET role=? WHERE id=?")->execute([$role,$id]);activity($pdo,(int)$me['id'],'User role updated',"User #$id → $role");flash('success','Role updated.');}redirect('/admin/users.php');}
+$users=$pdo->query("SELECT id,name,email,role,created_at,(SELECT COUNT(*) FROM tasks WHERE tasks.user_id=users.id) tasks_count FROM users ORDER BY id DESC")->fetchAll();
+$pageTitle='Team Management';$activePage='admin';require __DIR__.'/../includes/header.php';
+?>
+<section class="hero-row"><div><p class="eyebrow">ADMINISTRATION</p><h2>Manage team access.</h2><p>Review users, roles and productivity.</p></div></section>
+<section class="panel table-wrap"><table><thead><tr><th>User</th><th>Email</th><th>Role</th><th>Tasks</th><th>Joined</th><th>Action</th></tr></thead><tbody><?php foreach($users as $x):?><tr><td><?=e($x['name'])?></td><td><?=e($x['email'])?></td><td><span class="badge status-in_progress"><?=e(ucfirst($x['role']))?></span></td><td><?=$x['tasks_count']?></td><td><?=e(date('M d, Y',strtotime($x['created_at'])))?></td><td><?php if($x['id']!=$me['id']):?><form method="post" class="inline-form"><input type="hidden" name="csrf_token" value="<?=e(csrf_token())?>"><input type="hidden" name="id" value="<?=$x['id']?>"><select name="role"><option value="member">Member</option><option value="manager">Manager</option><option value="admin">Admin</option></select><button class="btn btn-secondary">Update</button></form><?php else:?>Current user<?php endif;?></td></tr><?php endforeach;?></tbody></table></section>
+<?php require __DIR__.'/../includes/footer.php';?>

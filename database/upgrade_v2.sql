@@ -1,0 +1,23 @@
+USE taskflow_pro;
+
+CREATE TABLE IF NOT EXISTS task_comments (
+ id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ task_id BIGINT UNSIGNED NOT NULL,
+ user_id BIGINT UNSIGNED NOT NULL,
+ body TEXT NOT NULL,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ CONSTRAINT fk_comments_task FOREIGN KEY(task_id) REFERENCES tasks(id) ON DELETE CASCADE,
+ CONSTRAINT fk_comments_user FOREIGN KEY(user_id) REFERENCES users(id) ON DELETE CASCADE,
+ INDEX idx_comments_task_created(task_id,created_at)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS task_checklists (
+ id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+ task_id BIGINT UNSIGNED NOT NULL,
+ item_text VARCHAR(255) NOT NULL,
+ is_done BOOLEAN NOT NULL DEFAULT FALSE,
+ position_no INT NOT NULL DEFAULT 0,
+ created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ CONSTRAINT fk_checklists_task FOREIGN KEY(task_id) REFERENCES tasks(id) ON DELETE CASCADE,
+ INDEX idx_checklists_task(task_id,position_no)
+) ENGINE=InnoDB;
