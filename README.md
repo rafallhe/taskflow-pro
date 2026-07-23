@@ -45,28 +45,63 @@ The system was developed from scratch using PHP and MySQL with a responsive Boot
 
 ## 📷 Screenshots
 
-### Dashboard
-
-(Add Screenshot)
-
-### Tasks
-
-(Add Screenshot)
-
-### Kanban Board
-
-(Add Screenshot)
-
-### Calendar
-
-(Add Screenshot)
-
 ### Login
 
-(Add Screenshot)
+![Login](screenshots/Login.png)
 
 ---
 
+### Register
+
+![Register](screenshots/Register.png)
+
+---
+
+### Dashboard
+
+![Dashboard](screenshots/Dashboard.png)
+
+---
+
+### Tasks
+
+![Tasks](screenshots/Tasks.png)
+
+---
+
+### Kanban Board
+
+![Kanban Board](screenshots/Kanban%20Board.png)
+
+---
+
+### Calendar
+
+![Calendar](screenshots/Calendar.png)
+
+---
+
+### Reports
+
+![Reports](screenshots/Reports.png)
+
+---
+
+### Global Search
+
+![Global Search](screenshots/Global%20Search.png)
+
+---
+
+### Create Task
+
+![Create Task](screenshots/Create%20Task.png)
+
+---
+
+### API Documentation
+
+![API Documentation](screenshots/API%20Documentation.png)
 ## ⚙ Installation
 
 ```bash
