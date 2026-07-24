@@ -1,18 +1,23 @@
 # 🚀 TaskFlow Pro
 
-**TaskFlow Pro** is a modern web-based Task & Project Management System designed to help individuals and teams organize work, track progress, and improve productivity.
+A modern **Task & Project Management System** built with **PHP, MySQL, JavaScript, Bootstrap**, featuring Kanban boards, Calendar scheduling, Reports, Notifications, Global Search, and REST API support.
 
 🌐 **Live Demo:** https://taskflowpro.fwh.is
 
 ---
 
-## 📌 Overview
+## ✨ Features
 
-TaskFlow Pro provides an intuitive interface for managing projects and daily tasks through a clean dashboard, Kanban board, and interactive calendar.
-
-The system was developed from scratch using PHP and MySQL with a responsive Bootstrap interface.
-
----
+- 🔐 User Authentication
+- 📋 Task Management
+- 📌 Kanban Board
+- 📅 Calendar View
+- 📊 Reports & Analytics
+- 🔍 Global Search
+- 🔔 Notifications
+- 🌍 Multi-language Support
+- 📡 REST API
+- 📱 Responsive Design
 
 ## ✨ Features
 
