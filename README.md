@@ -62,7 +62,7 @@ The system was developed from scratch using PHP and MySQL with a responsive Boot
 ---
 
 ### Global Search
-![Global Search](Global Search.png)
+![Global Search](GlobalSearch.png)
 
 ---
 
