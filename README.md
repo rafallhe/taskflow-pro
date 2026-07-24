@@ -35,16 +35,18 @@ A modern **Task & Project Management System** built with **PHP, MySQL, JavaScrip
 
 ---
 
-## 🛠 Technology Stack
+## 🛠 Tech Stack
 
-- PHP 8
-- MySQL
-- JavaScript (ES6)
-- Bootstrap 5
-- HTML5
-- CSS3
-- PDO
-- FullCalendar
+| Technology | Usage |
+|------------|-------|
+| PHP | Backend |
+| MySQL | Database |
+| JavaScript | Frontend Logic |
+| Bootstrap 5 | UI Framework |
+| HTML5 | Structure |
+| CSS3 | Styling |
+| PDO | Database Access |
+| FullCalendar | Calendar |
 
 ---
 
@@ -116,28 +118,40 @@ Run the project using Apache and PHP.
 
 ---
 
+
+---
+
+# هيكل المشروع
+
+````md
 ## 📂 Project Structure
 
-```
-assets/
-config/
-includes/
-auth/
-uploads/
-database/
-```
-
+```text
+taskflow-pro/
+│
+├── api/
+├── assets/
+├── config/
+├── includes/
+├── uploads/
+├── Dockerfile
+├── docker-compose.yml
+├── dashboard.php
+├── login.php
+├── register.php
+└── README.md
 ---
 
 ## 👨‍💻 Author
 
 **Rafallhe**
 
-GitHub:
-https://github.com/rafallhe
+- GitHub: https://github.com/rafallhe
+- Email: rafallhe.dev@gmail.com
+
+
 
 ---
-
 ## 📄 License
 
-This project is for educational and portfolio purposes.
+This project is licensed under the MIT License.
