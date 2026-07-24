@@ -47,7 +47,7 @@ The system was developed from scratch using PHP and MySQL with a responsive Boot
 
 ### Login
 
-![Login](screenshots/Login.png)
+![Login](Login.png)
 
 ---
 
