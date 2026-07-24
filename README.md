@@ -72,7 +72,7 @@ The system was developed from scratch using PHP and MySQL with a responsive Boot
 ---
 
 ### Kanban Board
-![Kanban Board](Kanban Board.png)
+![Kanban Board](KanbanBoard.png)
 
 ---
 
@@ -82,7 +82,7 @@ The system was developed from scratch using PHP and MySQL with a responsive Boot
 ---
 
 ### Create Task
-![Create Task](Create Task.png)
+![Create Task](CreateTask.png)
 
 ---
 
@@ -92,7 +92,7 @@ The system was developed from scratch using PHP and MySQL with a responsive Boot
 ---
 
 ### API Documentation
-![API Documentation](API Documentation.png)
+![API Documentation](APIDocumentation.png)
 ## ⚙ Installation
 
 ```bash
