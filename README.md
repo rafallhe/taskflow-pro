@@ -19,19 +19,7 @@ A modern **Task & Project Management System** built with **PHP, MySQL, JavaScrip
 - 📡 REST API
 - 📱 Responsive Design
 
-## ✨ Features
 
-- 🔐 User Authentication
-- 📊 Dashboard with Statistics
-- ✅ Task Management (Create, Edit, Delete)
-- 📁 Project Management
-- 📅 Calendar View
-- 📌 Kanban Board
-- 👥 User Management
-- 🎯 Task Priorities
-- 📈 Progress Tracking
-- 📱 Responsive Design
-- ⚡ Fast Performance
 
 ---
 
